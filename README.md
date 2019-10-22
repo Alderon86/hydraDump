@@ -56,7 +56,7 @@ There you will find the Applications installation Directory labled something lik
 
 Once you found the Targets Directory copy that Number over and put it into the hydraDump script on line 26.
 
-Dont worry the script itself has comments everywhere in case of what is allowed to t ouch and what not.
+Dont worry the script itself has comments everywhere in case of what is allowed to touch and what not.
 
 Also edit line `54` and `59` that is where the number will go we found earlier witch Clutch -i
 
@@ -70,7 +70,7 @@ Congratulations IOS 12.x dump should be succesfully saved under /var/tmp/clutch/
 
 Now remove all backups and copy over the decryptet bin from `var` to *.app root dir.
 
-Dont forget to rename `Frameworks-` back into `Frameworks` (yes this projects ships with a bug :D )
+Dont forget to rename `Frameworks-` back into `Frameworks` (yes this projects ships with a feature :) )
 
 If you like this Project and want to see more IOS releases in the feature follow me or give me a star.
 
