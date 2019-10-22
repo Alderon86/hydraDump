@@ -49,7 +49,7 @@ plutil -key com.apple.private.skip-library-validation -true $ent_tmp >/dev/null
 plutil -key com.apple.private.security.no-container -true $ent_tmp >/dev/null
 #cat $ent_tmp
 
-#Change  to -d for actual ipa dump, and replace App Number if needed
+#Change  to -d for actual ipa dump, and inster correct App Number
 echo "Dumping original to fail"
 Clutch -b
 
