@@ -1,0 +1,69 @@
+#!/bin/sh
+#####################################################################################
+# Educational Purposes only, Hail Hydra!																						#
+# Done on Ios 12.0.1 Unc0ver JB by Envy																							#
+# Get Clutch by compiling it yourself or getting the release version from git				#
+# https://github.com/KJCracks/Clutch																								#
+# install into /usr/bin/																														#
+# chmod 755 /usr/bin/Clutch*																												#
+# install Clutch dependencies: 																											#
+#	- plutil 																																					#
+#	- ldid																																						#
+#   - optool																																				#
+#   - zip																																						#
+#   - MiniZip																																				#
+# safe place to work in:																														#
+# cd /private/var/mobile/Documents																									#
+# Get the ent from bash and save it																									#
+# ldid -e `which bash` > ent.xml																										#
+# sign Clutch with the ent. "-Sent.xml" is the correct usage												#
+# ldid -Sent.xml `which Clutch`																											#
+# inject into trust cache																														#
+# inject `which Clutch`																															#
+#####################################################################################
+
+# edit this one to targets bundle dir
+cd /private/var/containers/Bundle/Application/abcd-1234-efgh-5678/
+
+# DO NOT EDIT THESE LINES!
+app=(*.app)
+binary=${app%.app}
+echo "Resigning [$binary]"
+cd "$app"
+
+# Just in case...
+cp -p "$binary" "${binary}_backup"
+
+## prevent frameworks / can be changed to also ignore plugins if needed.
+if [[ -e Frameworks ]]; then
+	hasfmwk=1
+	mv Frameworks Frameworks-
+fi
+
+ent_tmp=$(mktemp)
+ldid -e "$binary" >$ent_tmp
+plutil -key platform-application -true $ent_tmp >/dev/null
+plutil -key get-task-allow -true $ent_tmp >/dev/null
+plutil -key run-unsigned-code -true $ent_tmp >/dev/null
+plutil -key com.apple.private.skip-library-validation -true $ent_tmp >/dev/null
+plutil -key com.apple.private.security.no-container -true $ent_tmp >/dev/null
+#cat $ent_tmp
+
+#Change  to -d for actual ipa dump, and replace App Number if needed
+echo "Dumping original to fail"
+Clutch -b
+
+ldid -S$ent_tmp "$binary"
+
+echo "Dumping again"
+Clutch -b
+
+# Congratulations Ios 12.x dump should be succesfully saved under /var/tmp/clutch/ApplicationFolder
+# now remove all backups and copy over decryptet bin from var to *.app
+rm -f $ent_tmp
+mv -f "${binary}_backup" "$binary"
+
+# still buggy has to be renamend manually
+if [[ $hasfmwk != "" ]]; then
+	mv Frameworks- Frameworks
+fi
