@@ -35,7 +35,7 @@ Resign Clutch with the ent. "-Sent.xml" is the correct usage:
 - ldid -Sent.xml `which Clutch`
 
 Now inject into trust cache:
-- ``` inject `which Clutch` 
+- ``` inject `which Clutch` ```
 
 Copy over hydraDump into:
 - /usr/bin/
@@ -54,7 +54,7 @@ Start Filza or whatever browser you are using and head over to:
 
 There you will find the Applications installation Directory labled something like `1234-abcd-5678-efgh`
 
-Once you found the Targets Directory copy that Number over and put it into the hydraDump script on line 26.
+Once you found the Targets Directory copy that Number over and put it into the hydraDump script on line `26`.
 
 Dont worry the script itself has comments everywhere in case of what is allowed to touch and what not.
 
