@@ -32,13 +32,13 @@ Now we have to get the entitlements from bash and save them:
 - ``` ldid -e `which bash` > ent.xml ```
 
 Resign Clutch with the ent. "-Sent.xml" is the correct usage:
-- ldid -Sent.xml `which Clutch`
+- ```ldid -Sent.xml `which Clutch` ```
 
 Now inject into trust cache:
 - ``` inject `which Clutch` ```
 
 Copy over hydraDump into:
-- /usr/bin/
+- ``` /usr/bin/ ```
 
 Give it also proper permissions:
 - `chmod 755 /usr/bin/hydraDump`
