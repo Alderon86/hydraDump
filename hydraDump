@@ -1,25 +1,25 @@
 #!/bin/sh
 #####################################################################################
-# Educational Purposes only, Hail Hydra!																						#
-# Done on Ios 12.0.1 Unc0ver JB by Envy																							#
-# Get Clutch by compiling it yourself or getting the release version from git				#
-# https://github.com/KJCracks/Clutch																								#
-# install into /usr/bin/																														#
-# chmod 755 /usr/bin/Clutch*																												#
-# install Clutch dependencies: 																											#
-#	- plutil 																																					#
-#	- ldid																																						#
-#   - optool																																				#
-#   - zip																																						#
-#   - MiniZip																																				#
-# safe place to work in:																														#
-# cd /private/var/mobile/Documents																									#
-# Get the ent from bash and save it																									#
-# ldid -e `which bash` > ent.xml																										#
-# sign Clutch with the ent. "-Sent.xml" is the correct usage												#
-# ldid -Sent.xml `which Clutch`																											#
-# inject into trust cache																														#
-# inject `which Clutch`																															#
+# Educational Purposes only, Hail Hydra!					    #																#
+# Done on Ios 12.0.1 Unc0ver JB by Envy						    #																#
+# Get Clutch by compiling it yourself or getting the release version from git	    #
+# https://github.com/KJCracks/Clutch						    #																		#
+# install into /usr/bin/							    #																						#
+# chmod 755 /usr/bin/Clutch*							    #																				#
+# install Clutch dependencies: 							    #																			#
+#	- plutil 								    #																												#
+#	- ldid									    #																												#
+#   - optool									    #																										#
+#   - zip									    #																												#
+#   - MiniZip									    #																										#
+# safe place to work in:							    #																						#
+# cd /private/var/mobile/Documents						    #																		#
+# Get the ent from bash and save it						    #																		#
+# ldid -e `which bash` > ent.xml						    #																			#
+# sign Clutch with the ent. "-Sent.xml" is the correct usage		            #								#
+# ldid -Sent.xml `which Clutch`							    #
+# inject into trust cache							    #																						#
+# inject `which Clutch`								    #
 #####################################################################################
 
 # edit this one to targets bundle dir
@@ -59,7 +59,7 @@ echo "Dumping again"
 Clutch -b
 
 # Congratulations Ios 12.x dump should be succesfully saved under /var/tmp/clutch/ApplicationFolder
-# now remove all backups and copy over decryptet bin from var to *.app
+# now remove all backups and copy over decrypted bin from var to *.app
 rm -f $ent_tmp
 mv -f "${binary}_backup" "$binary"
 
