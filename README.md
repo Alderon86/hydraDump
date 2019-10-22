@@ -68,7 +68,7 @@ Switch to root user via `su` and simply run ./hydraDump
 
 Congratulations IOS 12.x dump should be succesfully saved under /var/tmp/clutch/ApplicationFolder
 
-Now remove all backups and copy over the decryptet bin from `var` to *.app root dir.
+Now remove all backups and copy over the decrypted bin from `var` to *.app root dir.
 
 Dont forget to rename `Frameworks-` back into `Frameworks` (yes this projects ships with a feature :) )
 
